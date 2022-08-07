@@ -16,12 +16,18 @@
   "rules": {
     "import/no-unresolved": 0,
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": {
-      "extensions": [
-        ".jsx",
-        ".tsx"
-    ]
-    }
+    "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+     ],
+     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+     "no-unused-vars": "off"
   },
   "settings": {
     "import/resolver": {
