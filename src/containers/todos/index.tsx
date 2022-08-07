@@ -8,9 +8,7 @@ export default function Todos() {
   const todos = useAppSelector(selectTodos)
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    dispatch(addTodo({ text: 'Learn React', completed: false }))
-  }, [])
+  useEffect(() => {}, [])
 
   const handleTodoSubmit = (todo: Todo) => {
     dispatch(addTodo(todo))
