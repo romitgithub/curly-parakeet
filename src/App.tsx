@@ -1,9 +1,7 @@
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <h1>TODO App</h1>
+    <div className="container p-2 mx-auto">
+      <h1 className="text-2xl font-semibold text-center">TODO App</h1>
     </div>
   );
 }
