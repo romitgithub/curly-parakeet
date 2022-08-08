@@ -8,8 +8,8 @@ interface AddTodoProps {
 export default function AddTodo(props: AddTodoProps) {
   const { onAdd } = props
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      const text = e.currentTarget.value
+    const text = e.currentTarget.value
+    if (e.key === 'Enter' && text.trim()) {
       e.currentTarget.value = ''
       onAdd({ text, completed: false })
     }
@@ -17,7 +17,6 @@ export default function AddTodo(props: AddTodoProps) {
   return (
     <div>
       <label htmlFor='todo' className='block text-md font-medium text-gray-700'>
-        <p>What do you want to do?</p>
         <div className='mt-1'>
           <input
             type='text'

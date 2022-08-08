@@ -1,15 +1,19 @@
 import Todo from './todoItem'
-import { TodosState } from './todosSlice'
+import { TodoWithId } from './todosSlice'
 
-export default function TodosList({ todos }: TodosState) {
+interface TodoListProps {
+  todos: TodoWithId[]
+  onToggle: (id: string) => void
+}
+
+export default function TodosList({ todos, onToggle }: TodoListProps) {
   console.log(todos)
 
   return (
     <div className='mt-8'>
-      <h1>Your todos:</h1>
-      <ul className='divide-y-2 mt-2'>
+      <ul className='divide-y-2'>
         {todos.map((todo: any) => (
-          <Todo key={todo.id} todo={todo} />
+          <Todo onToggle={onToggle} key={todo.id} todo={todo} />
         ))}
       </ul>
     </div>
