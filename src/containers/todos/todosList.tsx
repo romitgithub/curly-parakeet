@@ -1,3 +1,4 @@
+import { ViewListIcon } from '@heroicons/react/outline'
 import Todo from './todoItem'
 import { TodoWithId } from './todosSlice'
 
@@ -7,15 +8,19 @@ interface TodoListProps {
 }
 
 export default function TodosList({ todos, onToggle }: TodoListProps) {
-  console.log(todos)
-
   return (
     <div className='mt-8'>
-      <ul className='divide-y-2'>
-        {todos.map((todo: any) => (
-          <Todo onToggle={onToggle} key={todo.id} todo={todo} />
-        ))}
-      </ul>
+      {todos.length ? (
+        <ul className='divide-y-2'>
+          {todos.map((todo: any) => (
+            <Todo onToggle={onToggle} key={todo.id} todo={todo} />
+          ))}
+        </ul>
+      ) : (
+        <div className='h-40 flex items-center justify-center'>
+          <h3 className='text-sm font-medium text-gray-500 text-center'>No todos found.</h3>
+        </div>
+      )}
     </div>
   )
 }
