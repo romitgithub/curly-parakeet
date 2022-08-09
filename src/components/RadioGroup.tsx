@@ -8,7 +8,7 @@ export default function RadioGroup({ options, defaultChecked, onChange }: RadioG
   return (
     <div className='mx-auto my-4 flex items-center w-fit'>
       {options.map((option) => (
-        <div key={option.id} className='flex items-center p-2 mx-4 cursor-pointer'>
+        <div key={option.id} className='flex items-center p-2 mx-2 md:mx-4 cursor-pointer'>
           <input
             id={option.id}
             name='notification-method'
