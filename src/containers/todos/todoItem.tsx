@@ -1,8 +1,15 @@
 import { CheckCircleIcon as CheckCircleOutline } from '@heroicons/react/outline'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import React, { KeyboardEventHandler } from 'react'
+import OverflowMenu from '../../components/OverflowMenu'
+import { TODO_MENU_OPTIONS } from '../../constants'
 import { classNames } from '../../utils/styles'
 import { TodoWithId } from './todosSlice'
+
+export const MENU_OPTIONS = [
+  { label: 'Edit', value: TODO_MENU_OPTIONS.EDIT_TODO },
+  { label: 'Delete', value: TODO_MENU_OPTIONS.DELETE_TODO },
+]
 
 interface TodoItemProps {
   todo: TodoWithId
@@ -17,6 +24,21 @@ export default function TodoItem({ todo, onToggle }: TodoItemProps) {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       onToggle(todo.id)
+    }
+  }
+
+  const handleMenuChange = (e: React.MouseEvent<HTMLAnchorElement>, menu: string) => {
+    e.stopPropagation()
+    e.nativeEvent.stopImmediatePropagation()
+    switch (menu) {
+      case TODO_MENU_OPTIONS.EDIT_TODO:
+        console.log('edit')
+        break
+      case TODO_MENU_OPTIONS.DELETE_TODO:
+        console.log('delete')
+        break
+      default:
+        break
     }
   }
 
@@ -36,10 +58,14 @@ export default function TodoItem({ todo, onToggle }: TodoItemProps) {
         )}
 
         <p
-          className={classNames('text-xl align-middle ml-3', todo.completed ? 'line-through' : '')}
+          className={classNames(
+            'flex-1 text-xl align-middle mx-3',
+            todo.completed ? 'line-through' : '',
+          )}
         >
           {todo.text}
         </p>
+        <OverflowMenu onChange={handleMenuChange} options={MENU_OPTIONS} />
       </div>
     </li>
   )

@@ -20,7 +20,7 @@ export default function RadioGroup({ options, defaultChecked, onChange }: RadioG
           />
           <label
             htmlFor={option.id}
-            className='ml-3 block text-sm font-medium text-gray-700 cursor-pointer'
+            className='pl-3 block text-sm font-medium text-gray-700 cursor-pointer'
           >
             {option.title}
           </label>

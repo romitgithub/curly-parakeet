@@ -1,4 +1,3 @@
-import { ViewListIcon } from '@heroicons/react/outline'
 import Todo from './todoItem'
 import { TodoWithId } from './todosSlice'
 
