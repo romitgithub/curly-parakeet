@@ -5,12 +5,12 @@ import { classNames } from '../utils/styles'
 
 interface OverflowMenuProps {
   options: Array<{ label: string; value: string }>
-  onChange: (e: React.MouseEvent<HTMLAnchorElement>, value: string) => void
+  onChange: (e: React.MouseEvent<HTMLButtonElement>, value: string) => void
 }
 
 export default function OverflowMenu({ options, onChange }: OverflowMenuProps) {
   return (
-    <Menu as='div' className='z-10 relative inline-block text-left'>
+    <Menu as='div' className='relative inline-block text-left'>
       <div>
         <Menu.Button
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => e.stopPropagation()}
@@ -29,21 +29,21 @@ export default function OverflowMenu({ options, onChange }: OverflowMenuProps) {
         leaveFrom='transform opacity-100 scale-100'
         leaveTo='transform opacity-0 scale-95'
       >
-        <Menu.Items className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'>
+        <Menu.Items className='z-40 origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='py-1'>
             {options.map(({ label, value }) => (
               <Menu.Item key={value}>
                 {({ active }) => (
-                  <a
-                    href='#one'
+                  <button
+                    type='button'
                     onClick={(e) => onChange(e, value)}
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm',
+                      'w-full block px-4 py-2 text-sm text-left',
                     )}
                   >
                     {label}
-                  </a>
+                  </button>
                 )}
               </Menu.Item>
             ))}

@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-    html {
+    html, body, #root {
         font-family: 'Quicksand', sans-serif;
+        width: 100%;
+        height: 100%;
     }
   }

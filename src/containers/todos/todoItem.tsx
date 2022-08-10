@@ -14,9 +14,10 @@ export const MENU_OPTIONS = [
 interface TodoItemProps {
   todo: TodoWithId
   onToggle: (id: string) => void
+  onDelete: (id: string) => void
 }
 
-export default function TodoItem({ todo, onToggle }: TodoItemProps) {
+export default function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
   const handleItemClick = () => {
     onToggle(todo.id)
   }
@@ -27,7 +28,7 @@ export default function TodoItem({ todo, onToggle }: TodoItemProps) {
     }
   }
 
-  const handleMenuChange = (e: React.MouseEvent<HTMLAnchorElement>, menu: string) => {
+  const handleMenuChange = (e: React.MouseEvent<HTMLButtonElement>, menu: string) => {
     e.stopPropagation()
     e.nativeEvent.stopImmediatePropagation()
     switch (menu) {
@@ -35,7 +36,7 @@ export default function TodoItem({ todo, onToggle }: TodoItemProps) {
         console.log('edit')
         break
       case TODO_MENU_OPTIONS.DELETE_TODO:
-        console.log('delete')
+        onDelete(todo.id)
         break
       default:
         break
@@ -43,9 +44,9 @@ export default function TodoItem({ todo, onToggle }: TodoItemProps) {
   }
 
   return (
-    <li className='hover:bg-gray-50 focus:bg-gray-50 focus-visible:bg-gray-50'>
+    <li className='z-10 hover:bg-gray-50 focus:bg-gray-50 focus-visible:bg-gray-50'>
       <div
-        className='flex flex-row items-center px-2 py-5'
+        className='flex flex-row items-center px-2 py-4'
         role='button'
         tabIndex={0}
         onKeyDown={handleKeyDown}
@@ -59,7 +60,7 @@ export default function TodoItem({ todo, onToggle }: TodoItemProps) {
 
         <p
           className={classNames(
-            'flex-1 text-xl align-middle mx-3',
+            'flex-1 text-lg align-middle mx-3',
             todo.completed ? 'line-through' : '',
           )}
         >

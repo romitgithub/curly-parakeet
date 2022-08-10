@@ -4,15 +4,16 @@ import { TodoWithId } from './todosSlice'
 interface TodoListProps {
   todos: TodoWithId[]
   onToggle: (id: string) => void
+  onDelete: (id: string) => void
 }
 
-export default function TodosList({ todos, onToggle }: TodoListProps) {
+export default function TodosList({ todos, onToggle, onDelete }: TodoListProps) {
   return (
-    <div className='mt-8'>
+    <div className='overflow-scroll'>
       {todos.length ? (
         <ul className='divide-y-2'>
           {todos.map((todo: any) => (
-            <Todo onToggle={onToggle} key={todo.id} todo={todo} />
+            <Todo onToggle={onToggle} onDelete={onDelete} key={todo.id} todo={todo} />
           ))}
         </ul>
       ) : (
