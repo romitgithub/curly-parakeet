@@ -41,6 +41,14 @@ export const TodosSlice = createSlice({
         todo.completed = !todo.completed
       }
     },
+    updateTodo: (state, action) => {
+      const { id, ...data } = action.payload
+      const todo = state.todos.find((t) => t.id === id)
+      if (todo) {
+        todo.text = data.text
+        todo.completed = data.completed
+      }
+    },
     deleteTodo: (state, action) => ({
       ...state,
       todos: state.todos.filter((t) => t.id !== action.payload.id),
@@ -52,7 +60,7 @@ export const TodosSlice = createSlice({
   },
 })
 
-export const { addTodo, toggleTodo, deleteTodo, setFilterType } = TodosSlice.actions // action creators
+export const { addTodo, toggleTodo, deleteTodo, updateTodo, setFilterType } = TodosSlice.actions // action creators
 
 export const selectTodos = (state: RootState) => {
   if (state.todos.filterType === TODOS_FILTER_TYPE.SHOW_COMPLETED) {

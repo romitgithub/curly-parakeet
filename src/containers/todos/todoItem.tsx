@@ -15,9 +15,10 @@ interface TodoItemProps {
   todo: TodoWithId
   onToggle: (id: string) => void
   onDelete: (id: string) => void
+  onEdit: (todo: TodoWithId) => void
 }
 
-export default function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
+export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemProps) {
   const handleItemClick = () => {
     onToggle(todo.id)
   }
@@ -33,7 +34,7 @@ export default function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
     e.nativeEvent.stopImmediatePropagation()
     switch (menu) {
       case TODO_MENU_OPTIONS.EDIT_TODO:
-        console.log('edit')
+        onEdit(todo)
         break
       case TODO_MENU_OPTIONS.DELETE_TODO:
         onDelete(todo.id)

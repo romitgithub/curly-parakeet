@@ -5,15 +5,22 @@ interface TodoListProps {
   todos: TodoWithId[]
   onToggle: (id: string) => void
   onDelete: (id: string) => void
+  onEdit: (todo: TodoWithId) => void
 }
 
-export default function TodosList({ todos, onToggle, onDelete }: TodoListProps) {
+export default function TodosList({ todos, onToggle, onDelete, onEdit }: TodoListProps) {
   return (
-    <div className='overflow-scroll'>
+    <div>
       {todos.length ? (
         <ul className='divide-y-2'>
           {todos.map((todo: any) => (
-            <Todo onToggle={onToggle} onDelete={onDelete} key={todo.id} todo={todo} />
+            <Todo
+              onEdit={onEdit}
+              onToggle={onToggle}
+              onDelete={onDelete}
+              key={todo.id}
+              todo={todo}
+            />
           ))}
         </ul>
       ) : (

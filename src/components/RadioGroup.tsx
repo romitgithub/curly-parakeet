@@ -10,7 +10,7 @@ interface RadioGroupProps {
 export default function RadioGroup({ options, defaultChecked, onChange }: RadioGroupProps) {
   const [selectedOption, setSelectedOption] = useState(defaultChecked)
   return (
-    <div className='border-b border-gray-100 mx-auto mt-8 flex items-center w-full'>
+    <div className='border-b border-gray-100 mx-auto mt-2 flex items-center w-full'>
       {options.map((option) => (
         <div
           role='radio'

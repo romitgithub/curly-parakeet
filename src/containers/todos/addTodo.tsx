@@ -28,9 +28,9 @@ export default function AddTodo(props: AddTodoProps) {
     setValue(text)
   }
   return (
-    <div>
-      <label htmlFor='todo' className='block text-md font-medium text-gray-700'>
-        <div className='relative flex flex-col mt-1'>
+    <div className='bg-emerald-500 text-white px-4 pb-4'>
+      <label htmlFor='todo' className='block text-md font-medium text-gray-700 max-w-md mx-auto'>
+        <div className='relative flex flex-col'>
           <input
             type='text'
             name='todo'
@@ -38,10 +38,10 @@ export default function AddTodo(props: AddTodoProps) {
             value={value}
             onKeyUpCapture={handleKeyUp}
             onChange={handleChange}
-            className='px-2 py-3 shadow-sm text-md focus:ring-0 focus:border-gray-300 block w-full border-gray-200 bg-gray-50 rounded-md'
+            className='px-2 py-3 shadow-lg text-md border-0 focus:ring-0 focus:border-0 block w-full bg-white rounded-lg'
             placeholder='Shoppping, go karting, lunch, movie...'
           />
-          <p className='text-xs text-gray-400 mt-1 text-center'>Press enter to add todo</p>
+          <p className='text-xs text-white mt-1 text-center'>Press enter to add todo</p>
           {/* <button
             type='button'
             onClick={() => handleAddTodo(value)}
