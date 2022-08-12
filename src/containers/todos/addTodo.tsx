@@ -29,10 +29,11 @@ export default function AddTodo(props: AddTodoProps) {
   }
   return (
     <div className='bg-emerald-500 text-white px-4 md:py-8 py-6'>
-      <h1 className='text-white text-2xl font-semibold text-center'>
-        What do you want to do?
-      </h1>
-      <label htmlFor='todo' className='block text-md font-medium text-gray-700 max-w-md mx-auto mt-8'>
+      <h1 className='text-white text-2xl font-semibold text-center'>What do you want to do?</h1>
+      <label
+        htmlFor='todo'
+        className='block text-md font-medium text-gray-700 max-w-md mx-auto mt-8'
+      >
         <div className='relative flex flex-col'>
           <input
             type='text'
