@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project uses [TailwindUI](https://tailwindui.com/) as the design library
 
+This project is created as a mobile first web app, so it's responsive for all screen sizes.
+
 ## Demo - http://curly-parakeet.netlify.app/
 
 ## Local environment setup
