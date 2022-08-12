@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project uses [TailwindUI](https://tailwindui.com/) as the design library
 
+## Demo - http://curly-parakeet.netlify.app/
+
 ## Local environment setup
 
 - run `npm install` inside the root folder
