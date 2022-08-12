@@ -45,7 +45,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
   }
 
   return (
-    <li className='m-2 bg-white shadow-sm rounded z-10 hover:bg-zinc-100 focus:bg-zinc-100 focus-visible:bg-gray-50'>
+    <li className='bg-white rounded z-10 hover:bg-zinc-100'>
       <div
         className='flex flex-row items-center px-2 py-4'
         role='button'

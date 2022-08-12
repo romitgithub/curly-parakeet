@@ -12,7 +12,7 @@ export default function TodosList({ todos, onToggle, onDelete, onEdit }: TodoLis
   return (
     <div className='overflow-scroll'>
       {todos.length ? (
-        <ul className='pb-20'>
+        <ul className='space-y-1 pb-20'>
           {todos.map((todo: any) => (
             <Todo
               onEdit={onEdit}
