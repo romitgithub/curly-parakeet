@@ -71,9 +71,9 @@ export default function Todos() {
   }
 
   return (
-    <div className='w-full'>
+    <div className='flex flex-col w-full flex-1 overflow-hidden'>
       <AddTodo onAdd={handleTodoSubmit} />
-      <div className='container p-2 mx-auto max-w-md'>
+      <div className='overflow-hidden flex flex-col flex-1 container mx-auto max-w-md'>
         <RadioGroup
           onChange={handleFilterChange}
           options={FilterOptions}

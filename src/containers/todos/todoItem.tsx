@@ -45,7 +45,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
   }
 
   return (
-    <li className='z-10 hover:bg-gray-50 focus:bg-gray-50 focus-visible:bg-gray-50'>
+    <li className='m-2 bg-white shadow-sm rounded z-10 hover:bg-zinc-100 focus:bg-zinc-100 focus-visible:bg-gray-50'>
       <div
         className='flex flex-row items-center px-2 py-4'
         role='button'
@@ -61,7 +61,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
 
         <p
           className={classNames(
-            'flex-1 text-lg align-middle mx-3',
+            'flex-1 text-md align-middle mx-3',
             todo.completed ? 'line-through' : '',
           )}
         >

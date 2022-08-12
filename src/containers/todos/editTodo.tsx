@@ -8,7 +8,7 @@ interface EditTodoProps {
   onSave: (id: string, todo: Todo) => void
 }
 
-export default function ({ todo, onSave }: EditTodoProps) {
+export default function EditTodo({ todo, onSave }: EditTodoProps) {
   const [completed, setCompleted] = useState(todo?.completed || false)
   const [text, setText] = useState(todo?.text || '')
 

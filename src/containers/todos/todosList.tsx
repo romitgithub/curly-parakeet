@@ -10,9 +10,9 @@ interface TodoListProps {
 
 export default function TodosList({ todos, onToggle, onDelete, onEdit }: TodoListProps) {
   return (
-    <div>
+    <div className='overflow-scroll'>
       {todos.length ? (
-        <ul className='divide-y-2'>
+        <ul className='pb-20'>
           {todos.map((todo: any) => (
             <Todo
               onEdit={onEdit}
